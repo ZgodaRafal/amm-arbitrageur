@@ -1,4 +1,5 @@
 import { BigNumber, BigNumberish, utils } from 'ethers';
+import 'dotenv/config';
 
 interface Config {
   contractAddr: string;
@@ -10,11 +11,11 @@ interface Config {
   concurrency: number;
 }
 
-const contractAddr = '0xXXXXXXXXXXXXXXXXXXXXXX'; // flash bot contract address
+const contractAddr = '0xc8727553d2c28E55f8a37C98614bb49779fE72B1'; // flash bot contract address
 const gasPrice = utils.parseUnits('10', 'gwei');
 const gasLimit = 300000;
 
-const bscScanApiKey = 'XXXXXXXXXXXXXXXX'; // bscscan API key
+const bscScanApiKey = process.env.BSC_SCAN_API_KEY; // bscscan API key
 const bscScanUrl = `https://api.bscscan.com/api?module=stats&action=bnbprice&apikey=${bscScanApiKey}`;
 
 const config: Config = {
